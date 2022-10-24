@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Border Radius Adjuster</title>
+  <style>
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    } 
+    body { 
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      flex-direction: column;
+      gap: 16px;
+      background: #000;
+    } 
+    .output { 
+      height: 150px;
+      width: 150px;
+      background: #38b34e;
+    } 
+    input { 
+      cursor: pointer;
+      width: 200px;
+    } 
+    .result { 
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="output"></div>
+  <span class="result" style="color: #fff">0%</span>
+  <input type="range" class="input" min="0" max="50" value="0">
+</body>
+  <script>
+    // Variables
+    let input = document.querySelector(".input");
+    let result = document.querySelector(".result");
+    let outputBox = document.querySelector(".output");
+    
+    //Range Input Event
+    input.addEventListener("input", function(){
+      result.innerText = input.value + "%";
+      outputBox.style.borderRadius = input.value + "%";
+    });
+  </script>
+</html>

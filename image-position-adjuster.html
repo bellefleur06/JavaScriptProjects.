@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Image Position Adjuster</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: #fff;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: sans-serif;
+      background: #000;
+    }
+    .parent {
+      width: 300px;
+      height: 300px;
+      border: 5px dashed #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .image {
+      position: absolute;
+      height: 30%;
+      width: 30%;
+      background-image: url(images/anya.png);
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+    .input {
+      margin-top: 18px;
+    }
+    .input,
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    input {
+      width: 300px;
+      cursor: pointer;
+    }
+    @media (max-width: 350px) {
+      .parent,
+      .input{
+        padding: 0 20px;
+      }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="image"></div>
+  </div>
+    <div class="input">
+      <label for="x">
+        Horizontal
+        <input class="horizontal" type="range" min="-29" max="100" value="40.5" />
+      </label>
+      <label for="y">
+        Vertical
+        <input class="vertical" type="range" min="-29" max="100" value="40.5" />
+      </label>
+    </div>
+</body>
+  <script>
+    // Variables
+    let image = document.querySelector(".image");
+    let vertical = document.querySelector(".vertical");
+    let horizontal = document.querySelector(".horizontal");
+    
+    // Slider Input Event
+    vertical.addEventListener("input", function() {
+      image.style.top = vertical.value + "%";
+    });
+    
+    horizontal.addEventListener("input", function() {
+      image.style.left = horizontal.value + "%";
+    });
+  </script>
+</html>

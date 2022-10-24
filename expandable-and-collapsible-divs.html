@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Expandable And Collapsible Divs</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+    }
+    .parent { 
+      width: 90vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .card {
+      height: 70vh;
+      width: 10vh;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.5s ease-in;
+    }
+    .card.active {
+      width: 60vh;
+    }
+    div:nth-child(1) {
+      background: #fe0101;
+    }
+    div:nth-child(2) {
+      background: #fe8001;
+    }
+    div:nth-child(3) {
+      background: #fefe01;
+    }
+    div:nth-child(4) {
+      background: #01fe01;
+    }
+    div:nth-child(5) {
+      background: #0101fe;
+    }
+    div:nth-child(6) {
+      background: #4c0183;
+    }
+    div:nth-child(7) {
+      background: #9501d4;
+    }
+  </style>
+</head>
+<body>
+  <section class="parent">
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+  </section>
+</body>
+  <script>
+  // Variables
+  let cards = document.querySelectorAll(".card");
+  
+  // Collapse Div Function
+  function removeActiveClass() {
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].classList.remove("active");
+    }
+  }
+  
+  // Expand Div Logic
+  for (let i = 0; i < cards.length; i++) {
+    // Div Click Event
+    cards[i].addEventListener("click", function() {
+      removeActiveClass();
+      cards[i].classList.add("active");
+    });
+  }
+  </script>
+</html>

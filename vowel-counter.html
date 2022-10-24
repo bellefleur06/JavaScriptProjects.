@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vowel Counter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      flex-direction: column;
+      gap: 13px;
+      /* background: #888; */
+    }
+    button {
+      cursor: pointer;
+      padding: 5px 20px;
+      background: #000000;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    button, input {
+      outline: none;
+      border: none;
+      border-radius: 200px;
+      width: 80%;
+    }
+    input {
+      padding: 5px;
+    }
+    .result {
+      font-size: 13px;
+      color: #fff;
+    }
+    .container {
+      background: #1f91fe;
+      border: 0.5px solid #000;
+      height: 170px;
+      width: 300px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <section class="container">
+    <input type="text">
+    <button>Count</button>
+    <div class="result">Vowel Counter</div>
+  </section>
+</body>
+  <script>
+    // Variables
+    let input = document.querySelector("input");
+    let btn = document.querySelector("button");
+    let output = document.querySelector(".result");
+    
+    // Vowel Counter Function
+    function vowelCounter() {
+      let count = 0;
+      let inputText = input.value.toLowerCase();
+      
+      for (let a = 0; a < inputText.length; a++) {
+        let letter = inputText[a];
+        if (letter.match(/[a,e,i,o,u]/)) {
+          count++;
+        }
+      }
+      
+      output.textContent = `There are ${count} vowels in the input field!`;
+    }
+    
+    // Button Click Event
+    btn.addEventListener("click", function() {
+      vowelCounter();
+    });
+  </script>
+</html>

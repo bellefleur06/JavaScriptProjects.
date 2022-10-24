@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Counter App</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: sans-serif;
+      background: rgb(0, 0, 0);
+    }
+    .parent {
+      width: 250px;
+      height: 150px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 18px;
+      box-shadow: 0 0 5px rgb(255, 255, 255);
+    }
+    .btn,
+    span,
+    h3 {
+      color: #fff;
+    }
+    .btn {
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      margin-right: 10px;
+      text-transform: capitalize;
+      font-size: 12px;
+      outline: none;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .btn:last-child {
+      margin: 0;
+    }
+    .btn:active{
+      transform: translateY(5px);
+    }
+    .result {
+      font-size: 30px;
+      font-weight: 600;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .decrease {
+      background: #f03e3e;
+    }
+    .increase {
+      background: #37b24d;
+    }
+    .reset {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <section id="parent">
+    <h3>Counter App</h3>
+    <span class="result">0</span>
+    <div class="buttons">
+      <button class="btn decrease">Decrease</button>
+      <button class="btn reset">Reset</button>
+      <button class="btn increase">Increase</button>
+    </div>
+  </section>
+</body>
+  <script>
+    // Variables
+    const result = document.querySelector(".result");
+    const decrease = document.querySelector(".decrease");
+    const reset = document.querySelector(".reset");
+    const increase = document.querySelector(".increase");
+    
+    // Color Change Function
+    function color(){
+      // Number Is Less Then 0
+      if (result.innerHTML < 0) {
+        result.style.color = "#f13f3f";
+      }  
+      // Number Is Greater Than 0
+      else if (result.innerHTML > 0) {
+        result.style.color = "#38b34e";
+      }
+      // Number Is Equals To Zero
+      else {
+        result.style.color = "#fff";
+      }
+    }
+    
+    // Button Click Events
+    decrease.addEventListener("click", () => {
+      result.innerHTML--;
+      color();
+    });
+    
+    reset.addEventListener("click", () => {
+      result.innerHTML = 0;
+      color();
+    });
+      
+    increase.addEventListener("click", () => {
+      result.innerHTML++;
+      color();
+    });
+  </script>
+</html>

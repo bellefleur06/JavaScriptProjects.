@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Character Counter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: #fff;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: consolas;
+      background: linear-gradient(to right, #8f2ee3, #4b01e1);
+      padding: 0 20px;
+    }
+    .parent {
+      width: 300px;
+      height: 150px;
+      background: #000000;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+      border-radius: 7px;
+    } 
+    h4 {
+      text-align: center;
+    } 
+    .result {
+      padding: 0 30px;
+      border: 2px dotted #ffffff;
+    } 
+    textarea {
+      font-size: 20px;
+      resize: none;
+      width: 100%;
+      color: #000;
+      padding: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <h4>Character Count</h4>
+    <span class="result"></span>
+    <textarea cols="30" rows="20"></textarea>
+    
+  </div>
+</body>
+  <script>
+    // Variables
+    let result = document.querySelector(".result")
+    let input = document.querySelector("textarea");
+    let maxLength = 280;
+    result.textContent = maxLength;
+    
+    // Textarea Input Event
+    input.addEventListener("input", function() {
+      let currentCount = maxLength - input.value.length;
+      result.textContent = currentCount;
+      
+      if (currentCount <= 0) {
+        result.style.color = "#fe0101";
+        result.style.border = "2px dotted #fe0101";
+        console.log(currentCount);
+      } else {
+        result.style.color = "#fff";
+        result.style.border = "2px dotted #fff";
+      }
+    });
+  </script>
+</html>

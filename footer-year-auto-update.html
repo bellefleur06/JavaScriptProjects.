@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Footer Year Auto Update</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      font-family: sans-serif;
+      text-align: center;
+      /* background: #444; */
+    }
+    section {
+      height: 100vh;
+    }
+    .content {
+      height: 80vh;
+      border-bottom: 5px solid #1f91fe;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="content"></div>
+    <footer>&copy; <span class="year"> </span> Pat Bandola.</footer>
+  </section>
+</body>
+  <script>
+    // Variables
+    let footerYear = document.querySelector(".year");
+    const currentYear = new Date().getFullYear();
+    footerYear.textContent = currentYear;
+  </script>
+</html>
